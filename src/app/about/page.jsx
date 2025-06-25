@@ -5,6 +5,6 @@ export const metadata = {
 }
 export default function about() {
   return (
-    <div>about</div>
+    <div>aboutv2</div>
   )
 }

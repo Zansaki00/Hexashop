@@ -1,13 +1,11 @@
-import { Lobster } from 'next/font/google'
+import React from "react"
 import Link from 'next/link';
-import styles from './logo.modules.css'
+import styles from './logo.modules.css'; // Make sure this file exists
 
-const logoFont = Lobster({ subsets: ['latin'], weight:['400'] } )
-
-export default function logo() {
+export default function Logo() {
   return (
     <div>
-    <Link href="/" className={`${styles.logo} ${logoFont.className}`}> HEXASHOP </Link>
+      <Link href="/" className={styles.logo}>HEXASHOP</Link>
     </div>
-  )
+  );
 }

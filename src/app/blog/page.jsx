@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css"
-
+import React from "react"
 
 export const metadata = {
     title: 'Hexashop - Products',

@@ -1,31 +1,32 @@
+import React from "react"
 import "./globals.css"
-import { Montserrat  } from 'next/font/google'
 import Footer from './components/Footer/Footer'
 import Navbar from './components/Nav/Navbar'
 import { ThemeProvider } from "./context/ThemeContext"
 
-const bodyFont = Montserrat({ subsets: ['latin'], weight:['400','900'] } )
-
-export const metadata = {
-  title: 'Hexashop - Home',
-  description: 'Discover a world of endless shopping at our online store',
-}
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={bodyFont.className}>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"/>
 
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap"
+          rel="stylesheet"
+        />
+        
+      </head>
+      <body className="montserrat-font">
         <ThemeProvider>
           <div className="container">
-          <Navbar/>
-          <div className="FullHeight"></div>
-           {children}
-          <Footer/>
+            <Navbar />
+            <div className="FullHeight"></div>
+            {children}
+            <Footer />
           </div>
         </ThemeProvider>
-
       </body>
     </html>
-  )
+  );
 }
+

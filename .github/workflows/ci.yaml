@@ -3,27 +3,27 @@ name: CI - Docker Build
 on:
   push:
     branches:
-      -main
+      - main
   pull_request:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-  
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-      node-version: '18'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install dependecies
-      run: npm Install
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Run app test 
-      run: echo "No tests yet ...."
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build Docker image
-      run: docker build -t demo-app .
+      - name: Run app test
+        run: echo "No tests yet ...."
+
+      - name: Build Docker image
+        run: docker build -t demo-app .

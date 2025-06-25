@@ -42,11 +42,11 @@ jobs:
       - name: Deploy on EC2 
         uses: appleboy/ssh-action@v1.0.0
         with:
-        host: ${{secrets.EC2_HOST}}
-        username: ubuntu
-        key: ${{secrets.EC2_SSH_KEY}}
-        port: ${{secrets.EC2_PORT}}
-        script: |
-          docker pull ${{secrets.DOCKER_USERNAME}}/hexashop:latest
-          docker rm  -f hexashop || true
-          docker run -d -p 80:3000 --name hexashop ${{secrets.DOCKER_USERNAME}}/hexashop:latest
+          host: ${{secrets.EC2_HOST}}
+          username: ubuntu
+          key: ${{secrets.EC2_SSH_KEY}}
+          port: ${{secrets.EC2_PORT}}
+          script: |
+            docker pull ${{secrets.DOCKER_USERNAME}}/hexashop:latest
+            docker rm  -f hexashop || true
+            docker run -d -p 80:3000 --name hexashop ${{secrets.DOCKER_USERNAME}}/hexashop:latest

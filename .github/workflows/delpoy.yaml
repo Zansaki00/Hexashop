@@ -47,6 +47,9 @@ jobs:
           key: ${{secrets.EC2_SSH_KEY}}
           port: ${{secrets.EC2_PORT}}
           script: |
+            docker stop hexashop || true
+            docker rm hexashop || true
+            docker container ls -q --filter "publish=80" | xargs -r docker stop || true
+            docker container ls -aq --filter "publish=80" | xargs -r docker rm || true
             docker pull ${{secrets.DOCKER_USERNAME}}/hexashop:latest
-            docker rm  -f hexashop || true
             docker run -d -p 80:3000 --name hexashop ${{secrets.DOCKER_USERNAME}}/hexashop:latest

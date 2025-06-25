@@ -50,6 +50,5 @@ jobs:
             docker stop hexashop || true
             docker rm hexashop || true
             docker container ls -q --filter "publish=80" | xargs -r docker stop || true
-            docker container ls -aq --filter "publish=80" | xargs -r docker rm || true
             docker pull ${{secrets.DOCKER_USERNAME}}/hexashop:latest
             docker run -d -p 80:3000 --name hexashop ${{secrets.DOCKER_USERNAME}}/hexashop:latest
